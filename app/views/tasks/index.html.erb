@@ -1,2 +1,25 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+
+<%= form_for(Task.new, remote: true) do |f| %>
+
+    <%= link_to new_task_path, remote: true do %>
+    <button>New task</button>
+        <% end %>
+    <% end %>
+<ul id="tasks">
+  <% for task in @tasks %>
+
+      <li><%= task.task %>
+        <%= link_to edit_task_path(task), method: :update, remote: true do %>
+        <button>Edit</button>
+            <%end%>
+        <%= link_to task, remote: true, method: :delete, data: { confirm: 'Are you sure?' } do %>
+  <button>Delete!</button>
+            <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="task-form" style="display:none;"></div>
+</div>
+

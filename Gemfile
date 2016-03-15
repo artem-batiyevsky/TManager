@@ -55,4 +55,8 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
+gem 'launchy'
+gem 'protected_attributes'
+gem 'json'
+gem 'bootstrap-sass'
+gem 'simple_form'
