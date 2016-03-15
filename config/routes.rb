@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'tasks/index'
+  match '/index', to: 'tasks#index', via: 'get'
   root 'tasks#index'
   resources :tasks do
     get "delete"
