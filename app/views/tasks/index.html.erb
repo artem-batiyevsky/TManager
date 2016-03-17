@@ -1,14 +1,13 @@
+<div class="row">
 
-<%= form_for(Task.new, remote: true) do |f| %>
 
-    <%= link_to new_task_path, remote: true do %>
-    <button>New task</button>
-        <% end %>
-    <% end %>
-<ul id="tasks">
-  <% for task in @tasks %>
 
-      <li><%= task.task %>
+<ul class="list-group" id="tasks">
+  <li class="list-group-item"></li>
+
+<% for task in @tasks %>
+
+      <li class="list-group-item"><%= task.task %>
         <%= link_to edit_task_path(task), method: :update, remote: true do %>
         <button>Edit</button>
             <%end%>
@@ -18,8 +17,12 @@
     </li>
   <% end %>
 </ul>
+<center>
+<%= link_to new_task_path, remote: true do %>
+    <button>New task</button>
+<% end %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-2" id="task-form" style="display:none;"></div>
 </div>
-
+  </center>
