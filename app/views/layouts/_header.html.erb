@@ -2,4 +2,18 @@
   <h1>SIMPLE TODO LISTS</h1>
 
   <h2> FROM RUBY GARAGE </h2>
+
+
+  <nav id="user_nav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+    <% if current_user %>
+        <p class="navbar-text">Signed in as  <%= current_user.email %>
+
+        <%= link_to "Log out", log_out_path, {class: "btn btn-default navbar-btn"}%></p>
+    <% else %>
+            <%= link_to "Sign up", sign_up_path, {class: "btn btn-default navbar-btn"} %>
+        <%= link_to "Log in", log_in_path, {class: "btn btn-default navbar-btn"} %>
+    <% end %>
+    </div>
+  </nav>
 </div>

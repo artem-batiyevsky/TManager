@@ -14,15 +14,16 @@
 <!-- bootbox code -->
 <script src="/assets/bootbox.min.js"></script>
   <%= render 'layouts/header' %>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+
+
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash#{name}" %>
   <% end %>
   <div class="container">
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>
-
-
 
 </body>
 </html>

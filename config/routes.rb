@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'log_in' => 'sessions#new', :as => 'log_in'
+  get 'sessions/index'
+
+  get 'log_in' => 'sessions#index', :as => 'log_in'
+  get "log_out" => "sessions#destroy", :as => "log_out"
+
   resources :sessions
 
-  get 'sign_up' => 'users/new', :as => 'sign_up'
+  get 'sign_up' => 'users#new', :as => 'sign_up'
   root :to => 'users#new'
   resources :users
   match '/index', to: 'tasks#index', via: 'get'
