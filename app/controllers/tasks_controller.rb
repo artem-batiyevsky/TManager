@@ -5,12 +5,15 @@ class TasksController < ApplicationController
 
 
   def index
-    @task = Task.new
-    respond_to do |format|
-      format.html
-      format.json
+    if session[:user_id] == nil
+      redirect_to root_url, :notice => "Need to log in!"
+    else
+      @task = Task.new
+      respond_to do |format|
+        format.html
+        format.json
+      end
     end
-
   end
 
   def new
